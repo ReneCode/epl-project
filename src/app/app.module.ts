@@ -4,12 +4,13 @@ import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
 import { ProjectService } from "./services/project.service";
+import { PageService } from "./services/page.service";
 
 import { AppComponent } from "./components/app/app.component";
 import { SearchComponent } from "./components/search/search.component";
 import { ProjectOverviewComponent } from "./components/project-overview/project-overview.component";
 import { MainHeaderComponent } from "./components/main-header/main-header.component";
-import { ProjectPreviewComponent } from './components/project-preview/project-preview.component';
+import { ProjectPreviewComponent } from "./components/project-preview/project-preview.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProjectPreviewComponent } from './components/project-preview/project-pr
     HttpModule
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    PageService
   ],
   bootstrap: [AppComponent]
 })
