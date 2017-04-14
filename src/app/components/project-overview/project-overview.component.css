@@ -17,3 +17,6 @@
   background-color: #eaeaea;
 }
 
+.project-preview {
+  cursor: pointer;
+}

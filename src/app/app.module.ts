@@ -14,10 +14,14 @@ import { SearchComponent } from "./components/search/search.component";
 import { ProjectOverviewComponent } from "./components/project-overview/project-overview.component";
 import { MainHeaderComponent } from "./components/main-header/main-header.component";
 import { ProjectPreviewComponent } from "./components/project-preview/project-preview.component";
+import { PageOverviewComponent } from "./components/page-overview/page-overview.component";
+import { PagePreviewComponent } from './components/page-preview/page-preview.component';
 
 
 const appRoutes: Routes = [
-  { path: "projects", component: AppComponent }
+  { path: "", redirectTo: "/projects",  pathMatch: "full" },
+  { path: "projects", component: ProjectOverviewComponent },
+  { path: "pages/:projectid", component: PageOverviewComponent }
   // { path: "hero/:id",      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
@@ -38,7 +42,9 @@ const appRoutes: Routes = [
     SearchComponent,
     ProjectOverviewComponent,
     MainHeaderComponent,
-    ProjectPreviewComponent
+    ProjectPreviewComponent,
+    PageOverviewComponent,
+    PagePreviewComponent
   ],
   imports: [
       RouterModule.forRoot(appRoutes),

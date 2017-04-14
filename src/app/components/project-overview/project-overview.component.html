@@ -1,5 +1,8 @@
+
+  <epl-search title="Projekte"></epl-search>
+
   <div class="flex-container">
-    <div *ngFor="let project of projects" class="flex-item">
+    <div *ngFor="let project of projects" class="flex-item project-preview" (click)="onSelectProject(project)">
       <epl-project-preview [project]="project"></epl-project-preview>
     </div>
   </div>

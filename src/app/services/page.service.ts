@@ -13,12 +13,11 @@ export class PageService {
 
   constructor(private http: Http) { }
 
-  public getPages(project: Project): Observable<Page[]> {
+  public getPages(projectId: string): Observable<Page[]> {
     const headers = {
       "Content-Type": "application/json; charset=UTF-8",
       "Accept": "*/*"
     };
-    const projectId = project.uniqueId;
     const url = `https://cs2-projectviewerservice-dev.azurewebsites.net/api/v1/${projectId}/pages`;
 
     return this.http.get(url, headers)

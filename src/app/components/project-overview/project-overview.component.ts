@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+
 import { ProjectService } from "../../services/project.service";
 import { Project } from "../../models/project";
 
@@ -10,7 +12,8 @@ import { Project } from "../../models/project";
 export class ProjectOverviewComponent implements OnInit {
   private projects: Project[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService,
+              private router: Router) { }
 
   public ngOnInit() {
     this.projectService.getProjects()
@@ -18,6 +21,10 @@ export class ProjectOverviewComponent implements OnInit {
         this.projects = [ projects[3], projects[3]  ];
         this.projects = projects;
       });
+  }
+
+  private onSelectProject(project: Project) {
+    this.router.navigate(["/pages", project.uniqueId]);
   }
 
 }

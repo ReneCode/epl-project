@@ -18,7 +18,7 @@ export class ProjectPreviewComponent implements OnInit {
   constructor(private pageService: PageService) { }
 
   public ngOnInit() {
-    this.pageService.getPages(this.project)
+    this.pageService.getPages(this.project.uniqueId)
       .subscribe( pages => {
         this.countPages = pages.length;
 
