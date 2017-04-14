@@ -10,7 +10,7 @@ import { Project } from "../../models/project";
   styleUrls: ["./project-overview.component.css"]
 })
 export class ProjectOverviewComponent implements OnInit {
-  private projects: Project[];
+  public projects: Project[];
 
   constructor(private projectService: ProjectService,
               private router: Router) { }

@@ -11,7 +11,7 @@ import { Page } from "../../models/page";
   styleUrls: ["./page-overview.component.css"]
 })
 export class PageOverviewComponent implements OnInit {
-  private pages: Page[];
+  public pages: Page[];
 
   constructor(private pageService: PageService,
               private router: Router,

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 
 import { PageService } from "../../services/page.service";
-import { Project } from "../../models/Project";
-import { Page } from "../../models/Page";
+import { Project } from "../../models/project";
+import { Page } from "../../models/page";
 
 @Component({
   selector: "epl-project-preview",
@@ -10,10 +10,10 @@ import { Page } from "../../models/Page";
   styleUrls: ["./project-preview.component.css"]
 })
 export class ProjectPreviewComponent implements OnInit {
-  @Input() private project: Project;
-  private countPages: number;
-  private pageUrl: string = undefined;
-  private removeSVGAttributes: string[] = ["id"];
+  @Input() public project: Project;
+  public pageUrl: string = undefined;
+  public countPages: number;
+  public removeSVGAttributes: string[] = ["id"];
 
   constructor(private pageService: PageService) { }
 
