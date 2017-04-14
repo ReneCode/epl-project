@@ -14,7 +14,10 @@ export class ProjectOverviewComponent implements OnInit {
 
   public ngOnInit() {
     this.projectService.getProjects()
-      .subscribe( projects => this.projects = projects);
+      .subscribe( projects => {
+        this.projects = [ projects[3], projects[3]  ];
+        this.projects = projects;
+      });
   }
 
 }

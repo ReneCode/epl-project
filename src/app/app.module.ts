@@ -2,6 +2,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { RouterModule, Routes } from "@angular/router";
+
+import { InlineSVGModule } from "ng-inline-svg";
 
 import { ProjectService } from "./services/project.service";
 import { PageService } from "./services/page.service";
@@ -12,6 +15,23 @@ import { ProjectOverviewComponent } from "./components/project-overview/project-
 import { MainHeaderComponent } from "./components/main-header/main-header.component";
 import { ProjectPreviewComponent } from "./components/project-preview/project-preview.component";
 
+
+const appRoutes: Routes = [
+  { path: "projects", component: AppComponent }
+  // { path: "hero/:id",      component: HeroDetailComponent },
+  // {
+  //   path: 'heroes',
+  //   component: HeroListComponent,
+  //   data: { title: 'Heroes List' }
+  // },
+  // { path: '',
+  //   redirectTo: '/heroes',
+  //   pathMatch: 'full'
+  // },
+  // { path: "**", component: PageNotFoundComponent }
+];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +41,11 @@ import { ProjectPreviewComponent } from "./components/project-preview/project-pr
     ProjectPreviewComponent
   ],
   imports: [
+      RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    InlineSVGModule
   ],
   providers: [
     ProjectService,
