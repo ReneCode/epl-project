@@ -1,0 +1,17 @@
+
+.main-svg {
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.page-text {
+	text-align: right;
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-left: 10px; 
+	margin-right: 10px; 
+	font-family: 'Arial';
+	font-size: 14px;
+}

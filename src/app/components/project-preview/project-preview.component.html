@@ -1,14 +1,10 @@
-<div>
-  <div class="project-text">{{project.name}} / {{countPages}}
-  </div>
+<!--<iframe height="400" width="600" src="{{pageUrl}}"></iframe>-->
 
-  <!--<iframe height="400" width="600" src="{{pageUrl}}"></iframe>-->
+<svg class="main-svg" width="380" height="260" style='stroke-width: 1px; background-color: #fff;'>
+  <rect *ngIf="pageUrl == undefined" x="70" y="70" width="40" height="40" style="fill:rgb(200,50,50);stroke-width:1;stroke:rgb(0,0,0)">
+  </rect>
+  <g [inlineSVG]="pageUrl" [forceEvalStyles]="false" [removeSVGAttributes]="removeSVGAttributes" transform="scale(0.3)"></g>
+</svg>
 
-  <svg class="main-svg" width="380" height="260" style='stroke-width: 1px; background-color: #fff;'>
-    <rect *ngIf="pageUrl == undefined" x="70" y="70" width="40" height="40" style="fill:rgb(200,50,50);stroke-width:1;stroke:rgb(0,0,0)">
-    </rect>
-    <g [inlineSVG]="pageUrl" [forceEvalStyles]="false" [removeSVGAttributes]="removeSVGAttributes" transform="scale(0.3)"></g>
-
-
-  </svg>
+<div class="project-text">{{project.name}} / {{countPages}}
 </div>

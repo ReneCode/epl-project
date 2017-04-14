@@ -1,6 +1,11 @@
-# EplProject
+# Epl-Project
 
 [![Build Status](https://travis-ci.org/ReneCode/epl-project.svg?branch=master)](https://travis-ci.org/ReneCode/epl-project)
+
+used libraries:
+
+* [ng-inline-svg](https://github.com/arkon/ng-inline-svg)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
