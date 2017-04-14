@@ -15,7 +15,8 @@ import { ProjectOverviewComponent } from "./components/project-overview/project-
 import { MainHeaderComponent } from "./components/main-header/main-header.component";
 import { ProjectPreviewComponent } from "./components/project-preview/project-preview.component";
 import { PageOverviewComponent } from "./components/page-overview/page-overview.component";
-import { PagePreviewComponent } from './components/page-preview/page-preview.component';
+import { PagePreviewComponent } from "./components/page-preview/page-preview.component";
+import { ProjectFilterPipe } from "./pipes/project-filter.pipe";
 
 
 const appRoutes: Routes = [
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     MainHeaderComponent,
     ProjectPreviewComponent,
     PageOverviewComponent,
-    PagePreviewComponent
+    PagePreviewComponent,
+    ProjectFilterPipe
   ],
   imports: [
       RouterModule.forRoot(appRoutes),

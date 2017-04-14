@@ -11,6 +11,7 @@ import { Project } from "../../models/project";
 })
 export class ProjectOverviewComponent implements OnInit {
   public projects: Project[];
+  public searchValue: string = "";
 
   constructor(private projectService: ProjectService,
               private router: Router) { }

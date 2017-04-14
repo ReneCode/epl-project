@@ -3,7 +3,7 @@
       <div class="h3">{{title}}</div>
       <div class="input-group">
         <span class="input-group-btn">
-    <input type="text" id="ser" class="search-input form-control text-center" placeholder="Search" onfocus="this.placeholder=''" />
+    <input [(ngModel)]="value" type="text" id="ser" class="search-input form-control text-center" placeholder="Search" onfocus="this.placeholder=''" />
     <button type="submit" class="search-btn btn btn-default"><i class="fa fa-search">
       </i>
       </button>

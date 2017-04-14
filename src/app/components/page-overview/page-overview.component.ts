@@ -12,6 +12,7 @@ import { Page } from "../../models/page";
 })
 export class PageOverviewComponent implements OnInit {
   public pages: Page[];
+  public searchValue: string;
 
   constructor(private pageService: PageService,
               private router: Router,
