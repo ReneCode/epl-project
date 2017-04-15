@@ -27,6 +27,12 @@ export class PageService {
 
   private mapProjects(res: Response): any {
     const result = res.json();
+    const pages = [];
+    if (result) {
+      for (let p in result) {
+        pages.push(Page.createFromJson(p));
+      }
+    }
     return result;
   }
 

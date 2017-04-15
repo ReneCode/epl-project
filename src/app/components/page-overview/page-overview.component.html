@@ -1,8 +1,8 @@
-<epl-search title="Seiten" [value]="searchValue">
-</epl-search>
+<epl-search title="Seiten" [value]="searchValue" (onSearch)="onSearch($event)">
 
+</epl-search>
   <div class="flex-container">
-    <div *ngFor="let page of pages" class="flex-item page-preview" (click)="onSelectPage(page)">
+    <div *ngFor="let page of  (pages | pageFilter:searchValue)" class="flex-item page-preview" (click)="onSelectPage(page)">
       <epl-page-preview [page]="page"></epl-page-preview>
     </div>
   </div>

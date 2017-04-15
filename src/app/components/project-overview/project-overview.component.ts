@@ -24,6 +24,10 @@ export class ProjectOverviewComponent implements OnInit {
       });
   }
 
+  public onSearch(value: string) {
+    this.searchValue = value;
+  }
+
   private onSelectProject(project: Project) {
     this.router.navigate(["/pages", project.uniqueId]);
   }

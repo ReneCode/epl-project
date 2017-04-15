@@ -21,6 +21,7 @@ export class PagePreviewComponent implements OnInit {
     const projectId = this.page.projectId;
     const pageId = this.page.sortId;
     this.pageUrl = `https://cs2-projectviewerservice-dev.azurewebsites.net/api/v1/${projectId}/svg/${pageId}.svg`;
+    // this.pageName = this.page.getName();
     this.pageName = this.getProperty(this.page);
   }
 

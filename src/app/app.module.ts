@@ -17,6 +17,7 @@ import { ProjectPreviewComponent } from "./components/project-preview/project-pr
 import { PageOverviewComponent } from "./components/page-overview/page-overview.component";
 import { PagePreviewComponent } from "./components/page-preview/page-preview.component";
 import { ProjectFilterPipe } from "./pipes/project-filter.pipe";
+import { PageFilterPipe } from './pipes/page-filter.pipe';
 
 
 const appRoutes: Routes = [
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     ProjectPreviewComponent,
     PageOverviewComponent,
     PagePreviewComponent,
-    ProjectFilterPipe
+    ProjectFilterPipe,
+    PageFilterPipe
   ],
   imports: [
       RouterModule.forRoot(appRoutes),

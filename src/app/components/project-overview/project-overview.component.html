@@ -1,5 +1,5 @@
 
-  <epl-search title="Projekte" [(value)]="searchValue"></epl-search>
+  <epl-search title="Projekte" [value]="searchValue" (onSearch)="onSearch($event)"></epl-search>
 
   <div class="flex-container">
     <div *ngFor="let project of (projects | projectFilter:searchValue)" class="flex-item project-preview" (click)="onSelectProject(project)">

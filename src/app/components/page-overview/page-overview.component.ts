@@ -27,6 +27,10 @@ export class PageOverviewComponent implements OnInit {
       });
   }
 
+  public onSearch(searchValue: string) {
+    this.searchValue = searchValue;
+  }
+
   private loadPages(projectId: string) {
     this.pageService.getPages(projectId)
       .subscribe(pages => {
