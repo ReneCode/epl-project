@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { Http, Response } from "@angular/http";
 
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/catch";
@@ -26,8 +26,12 @@ export class ProjectService {
   }
 
   private mapProjects(res: Response): any {
-    const result = res.json();
-    return result;
+    const json = res.json();
+    const projects: Project[] = [];
+    json.forEach(project => {
+      projects.push(Project.createFromJson(project));
+    });
+    return projects;
   }
 
   private handleError(err: Response) {

@@ -1,4 +1,6 @@
-export class Page {
+import { PropertyUser } from "./property-user"; 
+
+export class Page extends PropertyUser{
 
   public static createFromJson(json: any): Page {
     const page = new Page(
@@ -15,20 +17,14 @@ export class Page {
     public id: string,
     public sortId: number,
     public tblObjectId: number,
-    public properties: any
-  ) {}
+    properties: any
+  ) {
+    super(properties);
+  }
 
   public getName(): string {
     return this.getProperty(11011);
   }
 
-  private getProperty(property: number) : string {
-    if (this.properties  &&  this.properties instanceof Array) {
-      let prop = this.properties.find(p => p.id == property);
-      if (prop) {
-        return prop.val;
-      }
-    }
-    return null;
-  }
+
 }
