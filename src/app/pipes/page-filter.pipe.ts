@@ -7,11 +7,10 @@ import { Page } from "../models/page";
 export class PageFilterPipe implements PipeTransform {
 
   public transform(pages: Page[], args?: string): any {
-    // if (pages && args) {
-    //   const upperFilter = args.toUpperCase();
-    //   return pages.filter(page => page.name.toUpperCase().includes(upperFilter));
-
-    // }
+    if (pages && args) {
+      const upperFilter = args.toUpperCase();
+      return pages.filter(page => page.getName().toUpperCase().includes(upperFilter));
+    }
     return pages;
   }
 
