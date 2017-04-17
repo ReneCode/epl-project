@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 
+import { ProjectService } from "../../services/project.service";
 import { PageService } from "../../services/page.service";
 import { Project } from "../../models/project";
 import { Page } from "../../models/page";
@@ -13,8 +14,10 @@ import { Page } from "../../models/page";
 export class PageOverviewComponent implements OnInit {
   public pages: Page[];
   public searchValue: string;
+  public projectName: string;
 
   constructor(private pageService: PageService,
+              private projectService: ProjectService,
               private router: Router,
               private activatedRoute: ActivatedRoute) { }
 
@@ -22,6 +25,7 @@ export class PageOverviewComponent implements OnInit {
     this.activatedRoute.params
       .subscribe((params: Params) => {
         const projectId = params["projectid"];
+        this.loadProjectName(projectId);
         this.loadPages(projectId);
 
       });
@@ -29,6 +33,13 @@ export class PageOverviewComponent implements OnInit {
 
   public onSearch(searchValue: string) {
     this.searchValue = searchValue;
+  }
+
+  private loadProjectName(projectId: string) {
+    this.projectService.getProject(projectId)
+      .subscribe(project => {
+        this.projectName = project.name;
+      });
   }
 
   private loadPages(projectId: string) {
@@ -39,7 +50,7 @@ export class PageOverviewComponent implements OnInit {
   }
 
   private onSelectPage(page: Page) {
-      this.router.navigate(["/pages", page.projectId, page.sortId]);
+      this.router.navigate(["/page", page.projectId, page.sortId]);
   }
 }
 
