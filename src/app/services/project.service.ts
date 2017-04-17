@@ -21,7 +21,7 @@ export class ProjectService {
     const url = "https://cs2-projectmanagementservice-dev.azurewebsites.net/api/v1/projects";
 
     return this.http.get(url, this.headers)
-      .map(res => res.json())
+      .map(this.mapProjects)
       .catch(err => Observable.throw(err));
   }
 

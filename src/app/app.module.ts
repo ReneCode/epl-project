@@ -18,8 +18,8 @@ import { PageOverviewComponent } from "./components/page-overview/page-overview.
 import { PagePreviewComponent } from "./components/page-preview/page-preview.component";
 import { ProjectFilterPipe } from "./pipes/project-filter.pipe";
 import { PageFilterPipe } from "./pipes/page-filter.pipe";
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { PageViewComponent } from "./page-view/page-view.component";
+import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+import { PageViewComponent } from "./components/page-view/page-view.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/projects",  pathMatch: "full" },

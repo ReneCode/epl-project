@@ -14,7 +14,7 @@ import { Page } from "../../models/page";
 export class PageOverviewComponent implements OnInit {
   public pages: Page[];
   public searchValue: string;
-  public projectName: string;
+  public projectName: string = "";
 
   constructor(private pageService: PageService,
               private projectService: ProjectService,
@@ -38,7 +38,10 @@ export class PageOverviewComponent implements OnInit {
   private loadProjectName(projectId: string) {
     this.projectService.getProject(projectId)
       .subscribe(project => {
-        this.projectName = project.name;
+        if (project) {
+          this.projectName = project.name;
+        }
+        console.log(this.projectName)
       });
   }
 
@@ -50,7 +53,7 @@ export class PageOverviewComponent implements OnInit {
   }
 
   private onSelectPage(page: Page) {
-      this.router.navigate(["/page", page.projectId, page.sortId]);
+      this.router.navigate(["/page", page.projectId, page.id]);
   }
 }
 
