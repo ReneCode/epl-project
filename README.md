@@ -6,6 +6,9 @@ used libraries:
 
 * [ng-inline-svg](https://github.com/arkon/ng-inline-svg)
 
+used help:
+* [Debouncing Angular 2 Input Component](https://manuel-rauber.com/2015/12/31/debouncing-angular-2-input-component/)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
