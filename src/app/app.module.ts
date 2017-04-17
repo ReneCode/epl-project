@@ -17,13 +17,14 @@ import { ProjectPreviewComponent } from "./components/project-preview/project-pr
 import { PageOverviewComponent } from "./components/page-overview/page-overview.component";
 import { PagePreviewComponent } from "./components/page-preview/page-preview.component";
 import { ProjectFilterPipe } from "./pipes/project-filter.pipe";
-import { PageFilterPipe } from './pipes/page-filter.pipe';
+import { PageFilterPipe } from "./pipes/page-filter.pipe";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/projects",  pathMatch: "full" },
   { path: "projects", component: ProjectOverviewComponent },
-  { path: "pages/:projectid", component: PageOverviewComponent }
+  { path: "pages/:projectid", component: PageOverviewComponent },
   // { path: "hero/:id",      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
   //   redirectTo: '/heroes',
   //   pathMatch: 'full'
   // },
-  // { path: "**", component: PageNotFoundComponent }
+  { path: "**", component: PageNotFoundComponent }
 ];
 
 
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     PageOverviewComponent,
     PagePreviewComponent,
     ProjectFilterPipe,
-    PageFilterPipe
+    PageFilterPipe,
+    PageNotFoundComponent
   ],
   imports: [
       RouterModule.forRoot(appRoutes),
