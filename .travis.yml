@@ -4,7 +4,7 @@ node_js:
 
 script:
   - ng --version
-  - npm run build:prod
+  - npm run build
   - bash ./scripts/travis-deploy.sh
 
 

@@ -19,12 +19,13 @@ import { PagePreviewComponent } from "./components/page-preview/page-preview.com
 import { ProjectFilterPipe } from "./pipes/project-filter.pipe";
 import { PageFilterPipe } from "./pipes/page-filter.pipe";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-
+import { PageViewComponent } from "./page-view/page-view.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/projects",  pathMatch: "full" },
   { path: "projects", component: ProjectOverviewComponent },
   { path: "pages/:projectid", component: PageOverviewComponent },
+  { path: "page/:projectid/:pageid", component: PageViewComponent },
   // { path: "hero/:id",      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
@@ -38,7 +39,6 @@ const appRoutes: Routes = [
   { path: "**", component: PageNotFoundComponent }
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +50,8 @@ const appRoutes: Routes = [
     PagePreviewComponent,
     ProjectFilterPipe,
     PageFilterPipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PageViewComponent
   ],
   imports: [
       RouterModule.forRoot(appRoutes),
