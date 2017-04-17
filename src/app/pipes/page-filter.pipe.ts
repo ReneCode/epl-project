@@ -9,7 +9,13 @@ export class PageFilterPipe implements PipeTransform {
   public transform(pages: Page[], args?: string): any {
     if (pages && args) {
       const upperFilter = args.toUpperCase();
-      return pages.filter(page => page.getName().toUpperCase().includes(upperFilter));
+      return pages.filter(page => {
+        const name = page.getName();
+        if (name) {
+          return name.toUpperCase().includes(upperFilter);
+        }
+        return false;
+      });
     }
     return pages;
   }

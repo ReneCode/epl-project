@@ -11,8 +11,12 @@ export class ProjectFilterPipe implements PipeTransform {
   public transform(projects: Project[], args?: string): any {
     if (projects && args) {
       const upperFilter = args.toUpperCase();
-      return projects.filter(project => project.name.toUpperCase().includes(upperFilter));
-
+      return projects.filter(project => {
+        if (project.name) {
+          return project.name.toUpperCase().includes(upperFilter);
+        }
+        return false;
+      });
     }
     return projects;
   }
