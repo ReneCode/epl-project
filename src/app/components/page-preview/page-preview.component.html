@@ -1,7 +1,7 @@
 <svg class="main-svg" width="380" height="260" style='stroke-width: 1px; background-color: #fff;'>
   <rect *ngIf="pageUrl == undefined" x="70" y="70" width="40" height="40" style="fill:rgb(200,50,50);stroke-width:1;stroke:rgb(0,0,0)">
   </rect>
-  <g [inlineSVG]="pageUrl" [forceEvalStyles]="false" [removeSVGAttributes]="removeSVGAttributes" transform="scale(0.3)"></g>
+  <g [inlineSVG]="pageUrl" [forceEvalStyles]="true" [removeSVGAttributes]="removeSVGAttributes" transform="scale(0.3)"></g>
 </svg>
 
 <div class="page-text">{{pageName}}
