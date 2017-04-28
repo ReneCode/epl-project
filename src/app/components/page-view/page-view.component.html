@@ -2,7 +2,11 @@
 
 <div class="center">
 <svg class="main-svg" width="1000" height="700" style='stroke-width: 1px; background-color: #fff;'>
-  <g [inlineSVG]="pageUrl" [forceEvalStyles]="true" transform="scale(0.7)"></g>
+  <g [inlineSVG]="pageUrl" [forceEvalStyles]="true" transform="scale(1)"></g>
+  <g *ngFor="let redlining of redlinings">
+    <text font-size="14" fill="blue" [attr.x]="redlining.graphic.x" [attr.y]="redlining.graphic.y">
+      {{redlining.graphic.value}}</text>
+  </g>
 </svg>
 
 </div>

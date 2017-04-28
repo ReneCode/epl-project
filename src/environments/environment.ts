@@ -4,7 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
   // pagesUrl: "https://cs2-projectviewerservice-dev.azurewebsites.net/api/v1/{projectId}/svg/{pageId}.svg"
 
+  tenantId: "Tenant-A"
 };

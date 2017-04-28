@@ -1,13 +1,16 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
+import { HttpModule, Http, XHRBackend, RequestOptions } from "@angular/http";
 import { RouterModule, Routes } from "@angular/router";
 
 import { InlineSVGModule } from "ng-inline-svg";
 
+import { HttpInterceptor } from "./http-interceptor";
+
 import { ProjectService } from "./services/project.service";
 import { PageService } from "./services/page.service";
+import { RedliningService } from "./services/redlining.service";
 
 import { AppComponent } from "./components/app/app.component";
 import { SearchComponent } from "./components/search/search.component";
@@ -22,7 +25,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { PageViewComponent } from "./components/page-view/page-view.component";
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/projects",  pathMatch: "full" },
+  { path: "", redirectTo: "/projects", pathMatch: "full" },
   { path: "projects", component: ProjectOverviewComponent },
   { path: "pages/:projectid", component: PageOverviewComponent },
   { path: "page/:projectid/:pageid", component: PageViewComponent },
@@ -54,15 +57,21 @@ const appRoutes: Routes = [
     PageViewComponent
   ],
   imports: [
-      RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     HttpModule,
     InlineSVGModule
   ],
   providers: [
+    {
+      provide: Http,
+      useClass: HttpInterceptor,
+      deps: [XHRBackend, RequestOptions]
+    },
     ProjectService,
-    PageService
+    PageService,
+    RedliningService
   ],
   bootstrap: [AppComponent]
 })

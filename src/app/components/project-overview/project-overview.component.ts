@@ -29,7 +29,7 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   private onSelectProject(project: Project) {
-    this.router.navigate(["/pages", project.uniqueId]);
+    this.router.navigate(["/pages", project.id]);
   }
 
 }

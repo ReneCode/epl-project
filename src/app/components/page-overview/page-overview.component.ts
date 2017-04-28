@@ -17,9 +17,9 @@ export class PageOverviewComponent implements OnInit {
   public projectName: string = "";
 
   constructor(private pageService: PageService,
-              private projectService: ProjectService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+    private projectService: ProjectService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   public ngOnInit() {
     this.activatedRoute.params
@@ -41,7 +41,6 @@ export class PageOverviewComponent implements OnInit {
         if (project) {
           this.projectName = project.name;
         }
-        console.log(this.projectName)
       });
   }
 
@@ -53,7 +52,7 @@ export class PageOverviewComponent implements OnInit {
   }
 
   private onSelectPage(page: Page) {
-      this.router.navigate(["/page", page.projectId, page.id]);
+    this.router.navigate(["/page", page.projectId, page.id]);
   }
 }
 
