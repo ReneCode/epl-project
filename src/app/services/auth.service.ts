@@ -7,10 +7,11 @@ import { tokenNotExpired } from "angular2-jwt";
 
 declare var Auth0Lock: any;
 
+
+
+
 @Injectable()
 export class AuthService {
-
-  private redirectUrl: string = undefined;
 
   private lock: any = new Auth0Lock("uQ5ASdbVcuUaRjTSaRwKKMK40gjl44fp",
     "relang.eu.auth0.com",
@@ -30,18 +31,20 @@ export class AuthService {
   }
 
   public navigateToRedirect() {
-    const redirectUrl = localStorage["redirect"];
+    const redirectUrl = this.getRedirectUrl();
+    // console.log("redirect:", redirectUrl);
     if (redirectUrl) {
-      localStorage.removeItem("redirect");
+      this.clearRedirectUrl();
       this.router.navigateByUrl(redirectUrl);
     }
-
   }
 
 
   public login(redirectUrl: string) {
+    // console.log("login:", redirectUrl)
+
     if (redirectUrl) {
-      localStorage["redirect"] = redirectUrl;
+      this.setRedirectUrl(redirectUrl);
     }
     // Call the show method to display the widget.
     this.lock.show();
@@ -57,4 +60,18 @@ export class AuthService {
     // Remove token from localStorage
     localStorage.removeItem("id_token");
   }
+
+  private setRedirectUrl(redirectUrl: string) {
+    localStorage["redirectUrl"] = redirectUrl;
+  };
+
+
+  private clearRedirectUrl() {
+    localStorage.removeItem("redirectUrl");
+  };
+
+  private getRedirectUrl(): string {
+    return localStorage["redirectUrl"];
+  };
+
 }

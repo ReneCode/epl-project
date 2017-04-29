@@ -28,15 +28,15 @@ import { PageFilterPipe } from "./pipes/page-filter.pipe";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { PageViewComponent } from "./components/page-view/page-view.component";
 import { RedirectComponent } from "./components/redirect/redirect.component";
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from "./components/home/home.component";
 
 const appRoutes: Routes = [
   // { path: "", redirectTo: "/projects", pathMatch: "full" },
   { path: "", component: HomeComponent },
   { path: "redirect", component: RedirectComponent },
   { path: "projects", component: ProjectOverviewComponent, canActivate: [AuthGuardService] },
-  { path: "pages/:projectid", component: PageOverviewComponent },
-  { path: "page/:projectid/:pageid", component: PageViewComponent },
+  { path: "pages/:projectid", component: PageOverviewComponent, canActivate: [AuthGuardService] },
+  { path: "page/:projectid/:pageid", component: PageViewComponent, canActivate: [AuthGuardService] },
   // { path: "hero/:id",      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
