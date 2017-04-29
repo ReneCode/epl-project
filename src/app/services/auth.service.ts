@@ -33,7 +33,7 @@ export class AuthService {
   public navigateToRedirect() {
     const redirectUrl = this.getRedirectUrl();
     // console.log("redirect:", redirectUrl);
-    if (redirectUrl) {
+    if (redirectUrl != undefined) {
       this.clearRedirectUrl();
       this.router.navigateByUrl(redirectUrl);
     }
@@ -43,7 +43,7 @@ export class AuthService {
   public login(redirectUrl: string) {
     // console.log("login:", redirectUrl)
 
-    if (redirectUrl) {
+    if (redirectUrl != undefined) {
       this.setRedirectUrl(redirectUrl);
     }
     // Call the show method to display the widget.
@@ -59,6 +59,7 @@ export class AuthService {
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem("id_token");
+    this.router.navigate([""]);
   }
 
   private setRedirectUrl(redirectUrl: string) {

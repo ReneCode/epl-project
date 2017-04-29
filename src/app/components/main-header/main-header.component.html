@@ -16,8 +16,8 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" *ngIf="!auth.authenticated()" (click)="auth.login()">Login</a>
-          <a href="#" *ngIf="auth.authenticated()" (click)="auth.logout()">Logout</a>
+          <a href="#" *ngIf="!auth.authenticated()" (click)="login()">Login</a>
+          <a href="#" *ngIf="auth.authenticated()" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>

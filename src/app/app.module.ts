@@ -4,6 +4,8 @@ import { FormsModule } from "@angular/forms";
 import { HttpModule, Http, XHRBackend, RequestOptions } from "@angular/http";
 import { RouterModule, Routes } from "@angular/router";
 
+import { AppRoutingModule } from "./app-routing.module";
+
 import { InlineSVGModule } from "ng-inline-svg";
 
 import { HttpInterceptor } from "./http-interceptor";
@@ -30,26 +32,6 @@ import { PageViewComponent } from "./components/page-view/page-view.component";
 import { RedirectComponent } from "./components/redirect/redirect.component";
 import { HomeComponent } from "./components/home/home.component";
 
-const appRoutes: Routes = [
-  // { path: "", redirectTo: "/projects", pathMatch: "full" },
-  { path: "", component: HomeComponent },
-  { path: "redirect", component: RedirectComponent },
-  { path: "projects", component: ProjectOverviewComponent, canActivate: [AuthGuardService] },
-  { path: "pages/:projectid", component: PageOverviewComponent, canActivate: [AuthGuardService] },
-  { path: "page/:projectid/:pageid", component: PageViewComponent, canActivate: [AuthGuardService] },
-  // { path: "hero/:id",      component: HeroDetailComponent },
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
-  { path: "**", component: PageNotFoundComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +49,7 @@ const appRoutes: Routes = [
     HomeComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule,

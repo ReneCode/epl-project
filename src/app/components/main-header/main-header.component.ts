@@ -14,4 +14,12 @@ export class MainHeaderComponent implements OnInit {
 
   public ngOnInit() {
   }
+
+  public login() {
+    this.auth.login("");
+  }
+
+  public logout() {
+    this.auth.logout();
+  }
 }
