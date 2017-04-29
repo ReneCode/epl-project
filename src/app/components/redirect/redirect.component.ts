@@ -13,11 +13,9 @@ export class RedirectComponent implements AfterViewInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   public ngAfterViewInit() {
-    console.log("init redirect")
-
     const func = () => {
       this.auth.navigateToRedirect();
-    }
+    };
     setTimeout(func, 500);
   }
 

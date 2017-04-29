@@ -8,7 +8,7 @@ import { InlineSVGModule } from "ng-inline-svg";
 
 import { HttpInterceptor } from "./http-interceptor";
 
-import { AUTH_PROVIDERS } from "angular2-jwt";
+// import { AUTH_PROVIDERS } from "angular2-jwt";
 import { AuthService } from "./services/auth.service";
 import { AuthGuardService } from "./services/auth-guard.service";
 
@@ -28,9 +28,11 @@ import { PageFilterPipe } from "./pipes/page-filter.pipe";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { PageViewComponent } from "./components/page-view/page-view.component";
 import { RedirectComponent } from "./components/redirect/redirect.component";
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/projects", pathMatch: "full" },
+  // { path: "", redirectTo: "/projects", pathMatch: "full" },
+  { path: "", component: HomeComponent },
   { path: "redirect", component: RedirectComponent },
   { path: "projects", component: ProjectOverviewComponent, canActivate: [AuthGuardService] },
   { path: "pages/:projectid", component: PageOverviewComponent },
@@ -61,7 +63,8 @@ const appRoutes: Routes = [
     PageFilterPipe,
     PageNotFoundComponent,
     PageViewComponent,
-    RedirectComponent
+    RedirectComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -76,7 +79,7 @@ const appRoutes: Routes = [
       useClass: HttpInterceptor,
       deps: [XHRBackend, RequestOptions]
     },
-    AUTH_PROVIDERS,
+    // AUTH_PROVIDERS,
     AuthService,
     AuthGuardService,
     ProjectService,

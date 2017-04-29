@@ -24,7 +24,6 @@ export class AuthService {
   constructor(private router: Router) {
     // Add callback for lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
-      console.log("authenticated: ", authResult.idToken);
       localStorage.setItem("id_token", authResult.idToken);
       this.navigateToRedirect();
     });
