@@ -21,15 +21,15 @@ export class ProjectService {
     const url = "https://cs2-projectmanagementservice-dev.azurewebsites.net/api/v1/projects";
 
     return this.http.get(url, this.headers)
-      .map(this.mapProjects)
-      .catch(err => Observable.throw(err));
+      .map(this.mapProjects);
+      // .catch(err => Observable.throw(err));
   }
 
   public getProject(projectId: string): Observable<Project> {
     const url = `https://cs2-projectmanagementservice-dev.azurewebsites.net/api/v1/projects/${projectId}`;
     return this.http.get(url, this.headers)
-      .map(this.mapProject)
-      .catch(err => Observable.throw(err));
+      .map(this.mapProject);
+      // .catch(err => Observable.throw(err));
   }
 
   private mapProjects(res: Response): any {

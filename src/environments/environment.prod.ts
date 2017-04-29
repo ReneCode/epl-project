@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  tenantId: "Tenant-A"
+  tenantId: "Tenant-A",
+  redirectUrl: "http://localhost:4200/redirect"
+
 };

@@ -8,6 +8,10 @@ import { InlineSVGModule } from "ng-inline-svg";
 
 import { HttpInterceptor } from "./http-interceptor";
 
+import { AUTH_PROVIDERS } from "angular2-jwt";
+import { AuthService } from "./services/auth.service";
+import { AuthGuardService } from "./services/auth-guard.service";
+
 import { ProjectService } from "./services/project.service";
 import { PageService } from "./services/page.service";
 import { RedliningService } from "./services/redlining.service";
@@ -23,10 +27,12 @@ import { ProjectFilterPipe } from "./pipes/project-filter.pipe";
 import { PageFilterPipe } from "./pipes/page-filter.pipe";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { PageViewComponent } from "./components/page-view/page-view.component";
+import { RedirectComponent } from "./components/redirect/redirect.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/projects", pathMatch: "full" },
-  { path: "projects", component: ProjectOverviewComponent },
+  { path: "redirect", component: RedirectComponent },
+  { path: "projects", component: ProjectOverviewComponent, canActivate: [AuthGuardService] },
   { path: "pages/:projectid", component: PageOverviewComponent },
   { path: "page/:projectid/:pageid", component: PageViewComponent },
   // { path: "hero/:id",      component: HeroDetailComponent },
@@ -54,7 +60,8 @@ const appRoutes: Routes = [
     ProjectFilterPipe,
     PageFilterPipe,
     PageNotFoundComponent,
-    PageViewComponent
+    PageViewComponent,
+    RedirectComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -69,6 +76,9 @@ const appRoutes: Routes = [
       useClass: HttpInterceptor,
       deps: [XHRBackend, RequestOptions]
     },
+    AUTH_PROVIDERS,
+    AuthService,
+    AuthGuardService,
     ProjectService,
     PageService,
     RedliningService

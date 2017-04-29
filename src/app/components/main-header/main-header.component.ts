@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "epl-main-header",
@@ -8,7 +9,8 @@ import { Component, OnInit, Input } from "@angular/core";
 export class MainHeaderComponent implements OnInit {
   @Input() public title: string = "";
 
-  constructor() { }
+  constructor(private auth: AuthService) {
+  }
 
   public ngOnInit() {
   }
