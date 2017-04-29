@@ -13,6 +13,8 @@ declare var Auth0Lock: any;
 @Injectable()
 export class AuthService {
 
+  public userProfile: any;
+
   private lock: any = new Auth0Lock("uQ5ASdbVcuUaRjTSaRwKKMK40gjl44fp",
     "relang.eu.auth0.com",
     {
@@ -23,9 +25,20 @@ export class AuthService {
     });
 
   constructor(private router: Router) {
+    try {
+      this.userProfile = JSON.parse(localStorage["userProfile"]);
+
+    } catch (e) { }
+
     // Add callback for lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
       localStorage.setItem("id_token", authResult.idToken);
+      // debugger;
+      this.lock.getProfile(authResult.idToken, (err, profile) => {
+        this.userProfile = profile;
+        localStorage["userProfile"] = JSON.stringify(profile);
+      });
+
       this.navigateToRedirect();
     });
   }
@@ -59,7 +72,24 @@ export class AuthService {
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem("id_token");
+    localStorage.removeItem("userProfile");
+
+    this.userProfile = undefined;
     this.router.navigate([""]);
+  }
+
+  public userName() {
+    if (this.userProfile) {
+      return `${this.userProfile.name} / ${this.tenantId()}`;
+    }
+    return undefined;
+  }
+
+  public tenantId(): string {
+    if (this.userProfile && this.userProfile.user_metadata) {
+      return this.userProfile.user_metadata.tenantId;
+    }
+    return "";
   }
 
   private setRedirectUrl(redirectUrl: string) {

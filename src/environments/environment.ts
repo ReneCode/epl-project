@@ -5,8 +5,5 @@
 
 export const environment = {
   production: false,
-  // pagesUrl: "https://cs2-projectviewerservice-dev.azurewebsites.net/api/v1/{projectId}/svg/{pageId}.svg"
-
-  tenantId: "Tenant-A",
   redirectUrl: "http://localhost:4200/redirect"
 };

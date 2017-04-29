@@ -20,6 +20,7 @@
           <a href="#" *ngIf="auth.authenticated()" (click)="logout()">Logout</a>
         </li>
       </ul>
+      <p class="navbar-text navbar-right" *ngIf="auth.userProfile">{{auth.userName()}}</p>
     </div>
   </div>
 </nav>

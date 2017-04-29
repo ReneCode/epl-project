@@ -58,8 +58,12 @@ import { HomeComponent } from "./components/home/home.component";
   providers: [
     {
       provide: Http,
-      useClass: HttpInterceptor,
-      deps: [XHRBackend, RequestOptions]
+      // useClass: HttpInterceptor,
+      useFactory:
+      (backend: XHRBackend, defaultOptions: RequestOptions, authService: AuthService) => {
+        return new HttpInterceptor(backend, defaultOptions, authService);
+      },
+      deps: [XHRBackend, RequestOptions, AuthService]
     },
     // AUTH_PROVIDERS,
     AuthService,

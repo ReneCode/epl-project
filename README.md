@@ -1,4 +1,4 @@
-# Epl-Project
+# epl-project
 
 [![Build Status](https://travis-ci.org/ReneCode/epl-project.svg?branch=master)](https://travis-ci.org/ReneCode/epl-project)
 
@@ -8,6 +8,8 @@ used libraries:
 
 used help:
 * [Debouncing Angular 2 Input Component](https://manuel-rauber.com/2015/12/31/debouncing-angular-2-input-component/)
+
+* [HttpInterceptor with addition dependencies](https://medium.com/aviabird/http-interceptor-angular2-way-e57dc2842462)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.

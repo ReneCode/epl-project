@@ -2,11 +2,15 @@ import { Injectable } from "@angular/core";
 import { Http, ConnectionBackend, Request, Response, RequestOptions, RequestOptionsArgs } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 
+import { AuthService } from "./services/auth.service";
+
 import { environment } from "../environments/environment";
 
 @Injectable()
 export class HttpInterceptor extends Http {
-    constructor(backend: ConnectionBackend, defaultOptions: RequestOptions) {
+    constructor(backend: ConnectionBackend,
+                defaultOptions: RequestOptions,
+                private authService: AuthService) {
         super(backend, defaultOptions);
     }
 
@@ -22,7 +26,7 @@ export class HttpInterceptor extends Http {
         }
 
         if (headers) {
-            headers.set("tenantId", environment.tenantId);
+            headers.set("tenantId", this.authService.tenantId());
         }
 
         return super.request(url, options);
