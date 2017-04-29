@@ -9,10 +9,9 @@ import { AuthService } from "../../services/auth.service";
 export class MainHeaderComponent implements OnInit {
   @Input() public title: string = "";
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
   }
 
   public ngOnInit() {
   }
-
 }
