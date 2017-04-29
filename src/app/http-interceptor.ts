@@ -8,9 +8,10 @@ import { environment } from "../environments/environment";
 
 @Injectable()
 export class HttpInterceptor extends Http {
-    constructor(backend: ConnectionBackend,
-                defaultOptions: RequestOptions,
-                private authService: AuthService) {
+    constructor(
+        backend: ConnectionBackend,
+        defaultOptions: RequestOptions,
+        private authService: AuthService) {
         super(backend, defaultOptions);
     }
 
@@ -31,6 +32,5 @@ export class HttpInterceptor extends Http {
 
         return super.request(url, options);
     }
-
 
 }

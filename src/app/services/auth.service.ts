@@ -7,9 +7,6 @@ import { tokenNotExpired } from "angular2-jwt";
 
 declare var Auth0Lock: any;
 
-
-
-
 @Injectable()
 export class AuthService {
 
@@ -51,7 +48,6 @@ export class AuthService {
       this.router.navigateByUrl(redirectUrl);
     }
   }
-
 
   public login(redirectUrl: string) {
     // console.log("login:", redirectUrl)
@@ -95,7 +91,6 @@ export class AuthService {
   private setRedirectUrl(redirectUrl: string) {
     localStorage["redirectUrl"] = redirectUrl;
   };
-
 
   private clearRedirectUrl() {
     localStorage.removeItem("redirectUrl");

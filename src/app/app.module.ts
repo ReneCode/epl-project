@@ -32,6 +32,10 @@ import { PageViewComponent } from "./components/page-view/page-view.component";
 import { RedirectComponent } from "./components/redirect/redirect.component";
 import { HomeComponent } from "./components/home/home.component";
 
+export function factoryHttpInterceptor(backend: XHRBackend, defaultOptions: RequestOptions, authService: AuthService)  {
+    return new HttpInterceptor(backend, defaultOptions, authService);
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,18 +60,15 @@ import { HomeComponent } from "./components/home/home.component";
     InlineSVGModule
   ],
   providers: [
+    AuthService,
+    AuthGuardService,
     {
       provide: Http,
       // useClass: HttpInterceptor,
-      useFactory:
-      (backend: XHRBackend, defaultOptions: RequestOptions, authService: AuthService) => {
-        return new HttpInterceptor(backend, defaultOptions, authService);
-      },
+      useFactory: (factoryHttpInterceptor),
       deps: [XHRBackend, RequestOptions, AuthService]
     },
     // AUTH_PROVIDERS,
-    AuthService,
-    AuthGuardService,
     ProjectService,
     PageService,
     RedliningService
