@@ -9,16 +9,10 @@
 
       <p class="navbar-text title">{{title}}</p>
 
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
-        <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-        <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-      </div>
-
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" *ngIf="!auth.authenticated()">Login</a>
-          <a href="#" *ngIf="auth.authenticated()">Logout</a>
+          <a href="#" *ngIf="!auth.authenticated()" (click)="auth.login()">Login</a>
+          <a href="#" *ngIf="auth.authenticated()" (click)="auth.logout()">Logout</a>
         </li>
       </ul>
     </div>
