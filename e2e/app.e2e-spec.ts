@@ -1,14 +1,14 @@
-import { EplProjectPage } from './app.po';
+import { EplProjectPage } from "./app.po";
 
-describe('epl-project App', () => {
+describe("epl-project App", () => {
   let page: EplProjectPage;
 
   beforeEach(() => {
     page = new EplProjectPage();
   });
 
-  it('should display message saying app works', () => {
+  it("should display message saying app works", () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual("app works!");
   });
 });

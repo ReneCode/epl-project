@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PageViewComponent } from './page-view.component';
+import { PageViewComponent } from "./page-view.component";
 
-describe('PageViewComponent', () => {
+describe("PageViewComponent", () => {
   let component: PageViewComponent;
   let fixture: ComponentFixture<PageViewComponent>;
 
@@ -19,7 +19,7 @@ describe('PageViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

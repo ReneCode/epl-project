@@ -1,6 +1,6 @@
-import { PropertyUser } from "./property-user"; 
+import { PropertyUser } from "./property-user";
 
-export class Page extends PropertyUser{
+export class Page extends PropertyUser {
 
   public static createFromJson(json: any): Page {
     const page = new Page(
@@ -25,6 +25,5 @@ export class Page extends PropertyUser{
   public getName(): string {
     return this.getProperty(11011);
   }
-
 
 }

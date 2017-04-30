@@ -16,7 +16,8 @@ export class PageOverviewComponent implements OnInit {
   public searchValue: string;
   public projectName: string = "";
 
-  constructor(private pageService: PageService,
+  constructor(
+    private pageService: PageService,
     private projectService: ProjectService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
@@ -55,4 +56,3 @@ export class PageOverviewComponent implements OnInit {
     this.router.navigate(["/page", page.projectId, page.id]);
   }
 }
-

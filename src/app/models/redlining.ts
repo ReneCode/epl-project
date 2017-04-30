@@ -8,9 +8,9 @@ export class Redlining {
       json.pageTblObjectId,
       json.type,
       json.status,
-	  json.userCreate,
-	  json.userLastChange,
-	  JSON.parse(json.graphic)
+      json.userCreate,
+      json.userLastChange,
+      JSON.parse(json.graphic)
     );
     return redlining;
   }
@@ -22,7 +22,7 @@ export class Redlining {
     public status: string,
     public userCreate: string,
     public userLastChange: string,
-	public graphic: any
+    public graphic: any
   ) {
   }
 

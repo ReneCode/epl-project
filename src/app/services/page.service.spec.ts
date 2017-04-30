@@ -1,15 +1,15 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { PageService } from './page.service';
+import { PageService } from "./page.service";
 
-describe('PageService', () => {
+describe("PageService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [PageService]
     });
   });
 
-  it('should ...', inject([PageService], (service: PageService) => {
+  it("should ...", inject([PageService], (service: PageService) => {
     expect(service).toBeTruthy();
   }));
 });

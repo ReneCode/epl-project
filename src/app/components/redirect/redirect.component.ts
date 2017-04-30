@@ -19,6 +19,4 @@ export class RedirectComponent implements AfterViewInit {
     setTimeout(func, 500);
   }
 
-
 }
-

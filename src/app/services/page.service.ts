@@ -43,7 +43,6 @@ export class PageService {
     return pages;
   }
 
-
   private mapPage(res: Response): Page {
     const json = res.json();
     if (json) {
@@ -51,7 +50,6 @@ export class PageService {
     }
     return null;
   }
-
 
   private handleError(err: Response) {
     console.error(err);

@@ -11,7 +11,6 @@ import { PageViewComponent } from "./components/page-view/page-view.component";
 import { RedirectComponent } from "./components/redirect/redirect.component";
 import { HomeComponent } from "./components/home/home.component";
 
-
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "redirect", component: RedirectComponent },
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: "page/:projectid/:pageid", component: PageViewComponent, canActivate: [AuthGuardService] },
   { path: "**", component: PageNotFoundComponent }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

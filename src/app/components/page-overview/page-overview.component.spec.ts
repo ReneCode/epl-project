@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PageOverviewComponent } from './page-overview.component';
+import { PageOverviewComponent } from "./page-overview.component";
 
-describe('PageOverviewComponent', () => {
+describe("PageOverviewComponent", () => {
   let component: PageOverviewComponent;
   let fixture: ComponentFixture<PageOverviewComponent>;
 
@@ -19,7 +19,7 @@ describe('PageOverviewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

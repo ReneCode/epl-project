@@ -9,7 +9,7 @@ import { Project } from "../models/project";
 
 @Injectable()
 export class ProjectService {
-  private headers = {
+  private headers: object = {
       "Content-Type": "application/json; charset=UTF-8",
       "Accept": "*/*"
     };

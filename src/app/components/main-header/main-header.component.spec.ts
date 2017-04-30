@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MainHeaderComponent } from './main-header.component';
+import { MainHeaderComponent } from "./main-header.component";
 
-describe('MainHeaderComponent', () => {
+describe("MainHeaderComponent", () => {
   let component: MainHeaderComponent;
   let fixture: ComponentFixture<MainHeaderComponent>;
 
@@ -19,7 +19,7 @@ describe('MainHeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

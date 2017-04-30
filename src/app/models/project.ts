@@ -1,6 +1,6 @@
 export class Project {
 
-    public static createFromJson(json): Project {
+    public static createFromJson(json: any): Project {
         const project: Project = new Project(
             json.uniqueId,
             json.id,
