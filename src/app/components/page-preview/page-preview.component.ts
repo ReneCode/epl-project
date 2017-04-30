@@ -6,7 +6,7 @@ import { Page } from "../../models/page";
 @Component({
   selector: "epl-page-preview",
   templateUrl: "./page-preview.component.html",
-  styleUrls: ["./page-preview.component.css"]
+  styleUrls: ["./page-preview.component.scss"]
 })
 export class PagePreviewComponent implements OnInit {
   public pageUrl: string = undefined;

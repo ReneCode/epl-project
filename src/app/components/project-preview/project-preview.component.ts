@@ -7,7 +7,7 @@ import { Page } from "../../models/page";
 @Component({
   selector: "epl-project-preview",
   templateUrl: "./project-preview.component.html",
-  styleUrls: ["./project-preview.component.css"]
+  styleUrls: ["./project-preview.component.scss"]
 })
 export class ProjectPreviewComponent implements OnInit {
   @Input() public project: Project;

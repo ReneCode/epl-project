@@ -7,7 +7,7 @@ import { Project } from "../../models/project";
 @Component({
   selector: "epl-project-overview",
   templateUrl: "./project-overview.component.html",
-  styleUrls: ["./project-overview.component.css"]
+  styleUrls: ["./project-overview.component.scss"]
 })
 export class ProjectOverviewComponent implements OnInit {
   public projects: Project[];

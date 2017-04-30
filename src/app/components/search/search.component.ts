@@ -7,7 +7,7 @@ import "rxjs/add/operator/distinctUntilChanged";
 @Component({
   selector: "epl-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.css"]
+  styleUrls: ["./search.component.scss"]
 })
 export class SearchComponent implements OnInit {
   @Input() public title: string;

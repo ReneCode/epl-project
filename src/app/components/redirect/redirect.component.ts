@@ -6,7 +6,7 @@ import { AuthService } from "../../services/auth.service";
 @Component({
   selector: "epl-redirect",
   templateUrl: "./redirect.component.html",
-  styleUrls: ["./redirect.component.css"]
+  styleUrls: ["./redirect.component.scss"]
 })
 export class RedirectComponent implements AfterViewInit {
 

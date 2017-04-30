@@ -11,7 +11,7 @@ import { Redlining } from "../../models/redlining";
 @Component({
   selector: "epl-page-view",
   templateUrl: "./page-view.component.html",
-  styleUrls: ["./page-view.component.css"]
+  styleUrls: ["./page-view.component.scss"]
 })
 export class PageViewComponent implements OnInit {
   public pageUrl: string;

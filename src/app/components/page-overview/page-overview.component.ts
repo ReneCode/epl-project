@@ -9,7 +9,7 @@ import { Page } from "../../models/page";
 @Component({
   selector: "epl-page-overview",
   templateUrl: "./page-overview.component.html",
-  styleUrls: ["./page-overview.component.css"]
+  styleUrls: ["./page-overview.component.scss"]
 })
 export class PageOverviewComponent implements OnInit {
   public pages: Page[];
