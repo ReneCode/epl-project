@@ -14,6 +14,7 @@ export class AuthService {
 
   private lock: any = new Auth0Lock("uQ5ASdbVcuUaRjTSaRwKKMK40gjl44fp",
     "relang.eu.auth0.com",
+    // always redirect to the same url.
     {
       auth: {
         redirectUrl: environment.redirectUrl,
@@ -30,13 +31,14 @@ export class AuthService {
     // Add callback for lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
       localStorage.setItem("id_token", authResult.idToken);
-      // debugger;
+      // console.log("## auth:", authResult.idToken);
       this.lock.getProfile(authResult.idToken, (err, profile) => {
         this.userProfile = profile;
         localStorage["userProfile"] = JSON.stringify(profile);
+
+        this.navigateToRedirect();
       });
 
-      this.navigateToRedirect();
     });
   }
 
@@ -75,14 +77,14 @@ export class AuthService {
   }
 
   public userName() {
-    if (this.userProfile) {
+    if (!this.authenticated() && this.userProfile) {
       return `${this.userProfile.name} / ${this.tenantId()}`;
     }
     return undefined;
   }
 
   public tenantId(): string {
-    if (this.userProfile && this.userProfile.user_metadata) {
+    if (this.authenticated() && this.userProfile && this.userProfile.user_metadata) {
       return this.userProfile.user_metadata.tenantId;
     }
     return "";
