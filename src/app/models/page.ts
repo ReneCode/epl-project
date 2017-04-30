@@ -8,8 +8,7 @@ export class Page extends PropertyUser {
       json.id,
       json.sortId,
       json.tblObjectId,
-      json.properties
-    );
+      json.properties);
     return page;
   }
   constructor(
@@ -17,13 +16,13 @@ export class Page extends PropertyUser {
     public id: string,
     public sortId: number,
     public tblObjectId: number,
-    properties: any
-  ) {
+    properties: any) {
     super(properties);
   }
 
   public getName(): string {
-    return this.getProperty(11011);
+    const propName = 11011;
+    return this.getProperty(propName);
   }
 
 }
