@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Http, ConnectionBackend, Request, Response, RequestOptions, RequestOptionsArgs } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 
-import { AuthService } from "./services/auth.service";
+import { AuthService } from "../services/auth.service";
 
-import { environment } from "../environments/environment";
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class HttpInterceptor extends Http {

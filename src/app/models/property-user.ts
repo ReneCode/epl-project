@@ -8,7 +8,7 @@ export class PropertyUser {
 
     public getProperty(property: number): string {
         if (this.properties && this.properties instanceof Array) {
-            const prop = this.properties.find(p => p.id === property);
+            const prop = this.properties.find(p => parseInt(p.id) === property);
             if (prop) {
                 return prop.val;
             }

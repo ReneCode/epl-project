@@ -8,7 +8,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 import { InlineSVGModule } from "ng-inline-svg";
 
-import { HttpInterceptor } from "./http-interceptor";
+import { HttpInterceptor } from "./common/http-interceptor";
 
 // import { AUTH_PROVIDERS } from "angular2-jwt";
 import { AuthService } from "./services/auth.service";
