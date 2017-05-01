@@ -1,12 +1,17 @@
 <epl-main-header [title]="title"></epl-main-header>
 
 <div class="center">
-<svg class="main-svg" width="1000" height="700" style='stroke-width: 1px; background-color: #fff;'>
-  <g [inlineSVG]="pageUrl" [forceEvalStyles]="true" transform="scale(1)"></g>
-  <g *ngFor="let redlining of redlinings">
-    <text font-size="14" fill="blue" [attr.x]="redlining.graphic.x" [attr.y]="redlining.graphic.y">
-      {{redlining.graphic.value}}</text>
-  </g>
-</svg>
+  <svg
+  epl-mouse-wheel (mouseWheelUp)="mouseWheelUp($event)" (mouseWheelDown)="mouseWheelDown($event)"
+  class="main-svg" width="1000" height="600" style='stroke-width: 1px; background-color: #fff;'>
+    <g #svgTransformGroup=epl-svg-transform-group epl-svg-transform-group>
+
+      <g [inlineSVG]="pageUrl" [forceEvalStyles]="true" transform="scale(0.6)"></g>
+      <g *ngFor="let redlining of redlinings">
+        <text font-size="14" fill="blue" [attr.x]="redlining.graphic.x" [attr.y]="redlining.graphic.y">
+          {{redlining.graphic.value}}</text>
+      </g>
+    </g>
+  </svg>
 
 </div>

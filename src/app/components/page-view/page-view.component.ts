@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 
 import { ProjectService } from "../../services/project.service";
@@ -8,23 +8,33 @@ import { Project } from "../../models/project";
 import { Page } from "../../models/page";
 import { Redlining } from "../../models/redlining";
 
+import { SvgTransformer } from "../../common/svg-transformer";
+import { SvgTransformGroupDirective } from "../../directives/svg-transform-group.directive";
+
 @Component({
   selector: "epl-page-view",
   templateUrl: "./page-view.component.html",
   styleUrls: ["./page-view.component.scss"]
 })
 export class PageViewComponent implements OnInit {
+  @ViewChild("svgTransformGroup") public svgTransformGroup: SvgTransformGroupDirective;
+
   public pageUrl: string;
   public redlinings: Redlining[];
   private projectName: string;
   private pageName: string;
+  private svgTransformer: SvgTransformer;
 
-  constructor(private pageService: PageService,
-              private projectService: ProjectService,
-              private redliningService: RedliningService,
-              private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private pageService: PageService,
+    private projectService: ProjectService,
+    private redliningService: RedliningService,
+    private activatedRoute: ActivatedRoute) { }
 
   public ngOnInit() {
+    const svg = document.querySelector("svg");
+    this.svgTransformer = new SvgTransformer(svg, this.svgTransformGroup);
+
     this.activatedRoute.params
       .subscribe((params: Params) => {
         const projectId = params["projectid"];
@@ -36,6 +46,14 @@ export class PageViewComponent implements OnInit {
 
   public get title(): string {
     return this.projectName + " - " + this.pageName;
+  }
+
+  public mouseWheelUp(event: Event) {
+    this.svgTransformer.zoomOut(event);
+  }
+
+  public mouseWheelDown(event: Event) {
+    this.svgTransformer.zoomIn(event);
   }
 
   private loadProjectName(projectId: string) {

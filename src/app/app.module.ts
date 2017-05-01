@@ -31,6 +31,8 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { PageViewComponent } from "./components/page-view/page-view.component";
 import { RedirectComponent } from "./components/redirect/redirect.component";
 import { HomeComponent } from "./components/home/home.component";
+import { SvgTransformGroupDirective } from "./directives/svg-transform-group.directive";
+import { MouseWheelDirective } from "./directives/mouse-wheel.directive";
 
 export function factoryHttpInterceptor(backend: XHRBackend, defaultOptions: RequestOptions, authService: AuthService)  {
     return new HttpInterceptor(backend, defaultOptions, authService);
@@ -50,7 +52,9 @@ export function factoryHttpInterceptor(backend: XHRBackend, defaultOptions: Requ
     PageNotFoundComponent,
     PageViewComponent,
     RedirectComponent,
-    HomeComponent
+    HomeComponent,
+    SvgTransformGroupDirective,
+    MouseWheelDirective
   ],
   imports: [
     AppRoutingModule,
