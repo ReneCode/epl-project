@@ -77,7 +77,7 @@ export class AuthService {
   }
 
   public userName() {
-    if (!this.authenticated() && this.userProfile) {
+    if (this.authenticated() && this.userProfile) {
       return `${this.userProfile.name} / ${this.tenantId()}`;
     }
     return undefined;
